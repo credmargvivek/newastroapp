@@ -1,4 +1,4 @@
-import { streamText, convertToCoreMessages } from 'ai';
+import { streamText,convertToModelMessages } from 'ai';
 import { google } from '@ai-sdk/google';
 import { auth } from '@/lib/auth';
 import { db } from '@/lib/db';
@@ -29,9 +29,9 @@ export async function POST(req: Request) {
       }
     }
 
-    const result = await streamText({
+    const result = streamText({
       model: google('gemini-1.5-flash'),
-      messages: convertToCoreMessages(messages),
+      messages: convertToModelMessages(messages),
       tools: {
         getWeather: getWeatherTool,
         getF1Race: getF1RaceTool,
@@ -44,10 +44,9 @@ export async function POST(req: Request) {
       When users ask about stock prices or market data, use the getStockPrice tool.
       
       Be conversational and helpful. Present tool results in a clear, user-friendly way.`,
-      maxToolRoundtrips: 2,
     });
 
-    return result.toDataStreamResponse();
+    return result.toUIMessageStreamResponse();
   } catch (error) {
     console.error('Chat API error:', error);
     return Response.json(
