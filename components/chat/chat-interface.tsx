@@ -90,7 +90,7 @@ export function ChatInterface() {
               </h2>
               <p className="text-gray-600 mb-8">
                 I can help you with weather information, Formula 1 race schedules, and stock prices.
-                <span className='font-extrabold'>Just ask me related to these topics only! I will not give other Answers</span>
+                <span className='font-extrabold'>Just ask me Anything</span>
               </p>
               <div className="grid grid-cols-1 gap-3 text-sm">
                 <div className="p-3 bg-blue-50 rounded-lg">
