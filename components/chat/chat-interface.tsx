@@ -29,7 +29,7 @@ export function ChatInterface() {
     handleSubmit, 
     isLoading,
     setMessages 
-  } = useChat();
+  } = useChat({streamProtocol:'data'});
 
   useEffect(() => {
     setMounted(true);

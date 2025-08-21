@@ -22,7 +22,8 @@ export const getWeatherTool = tool({
       }
 
       const data = await response.json();
-
+       
+     
       return {
         location: data.name,
         country: data.sys.country,
