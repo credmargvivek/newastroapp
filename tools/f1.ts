@@ -8,7 +8,8 @@ export const getF1RaceTool = tool({
     try {
       const currentYear = new Date().getFullYear();
       const response = await fetch(
-        `https://ergast.com/api/f1/${currentYear}.json`
+        `https://api.jolpi.ca/ergast/f1/races/`
+        // `http://ergast.com/api/f1/${currentYear}.results.json`
       );
 
       if (!response.ok) {

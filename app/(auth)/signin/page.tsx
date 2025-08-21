@@ -1,9 +1,10 @@
-import { auth } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { SignInForm } from '@/components/auth/signin-form';
 
 export default async function SignInPage() {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
 
   if (session) {
     redirect('/chat');
