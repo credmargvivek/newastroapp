@@ -60,7 +60,7 @@ export function MessageList({ messages }: MessageListProps) {
                     console.log('Tool Invocation:', toolInvocation),
                     <ToolCards
                       key={toolInvocation.toolCallId}
-                      toolInvocation={toolInvocation}
+                      toolInvocation={toolInvocation as any}
                     />
                   ))}
                 </div>

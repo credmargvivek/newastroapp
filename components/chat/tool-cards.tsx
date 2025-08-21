@@ -8,7 +8,7 @@ interface ToolInvocation {
   toolName: string;
   toolCallId: string;
   state: 'call' | 'result';
-  args?: any;
+  args?:any;
   result?: any;
 }
 
@@ -17,7 +17,7 @@ interface ToolCardsProps {
 }
 
 export function ToolCards({ toolInvocation }: ToolCardsProps) {
-    console.log('Tool Invocation:', toolInvocation);
+    
     if (toolInvocation.state === 'call') {
     return (
       <Card className="bg-yellow-50 border-yellow-200">

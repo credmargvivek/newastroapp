@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useChat } from 'ai/react';
@@ -6,13 +7,15 @@ import { Button } from '@/components/ui/button';
 import { RefreshCw } from 'lucide-react';
 import { MessageList } from './message-list';
 import { MessageInput } from './message-input';
-import { streamToResponse, tool } from 'ai';
+
+
 
 interface ChatMessage {
   id: number;
   role: 'user' | 'assistant' | 'system' | 'tool';
   content: string;
   createdAt: string;
+  toolInvocations:[]
 }
 
 export function ChatInterface() {
@@ -26,7 +29,7 @@ export function ChatInterface() {
     handleSubmit, 
     isLoading,
     setMessages 
-  } = useChat({ api: "/api/chat" , streamMode:true});
+  } = useChat();
 
   useEffect(() => {
     setMounted(true);
@@ -91,13 +94,13 @@ export function ChatInterface() {
               </p>
               <div className="grid grid-cols-1 gap-3 text-sm">
                 <div className="p-3 bg-blue-50 rounded-lg">
-                  <strong>Try asking:</strong> "What's the weather in New York?"
+                  <strong>Try asking:</strong>{"What's the weather in New York?"}
                 </div>
                 <div className="p-3 bg-green-50 rounded-lg">
-                  <strong>Or:</strong> "Tell me about the next F1 race in 2025?"
+                  <strong>Or:</strong> Tell me about the next F1 race in 2025?
                 </div>
                 <div className="p-3 bg-purple-50 rounded-lg">
-                  <strong>Or:</strong> "What's the price of AAPL stock?"
+                  <strong>Or:</strong> What's the price of AAPL stock?
                 </div>
               </div>
             </div>
