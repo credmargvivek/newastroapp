@@ -3,12 +3,14 @@ import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { SignInForm } from '@/components/auth/signin-form';
 
-export default async function SignInPage() {
+export default async function SignInPage({ searchParams }: { searchParams: { error?: string } }) {
   const session = await getServerSession(authOptions);
 
   if (session) {
     redirect('/chat');
   }
+
+  const error = searchParams?.error;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -20,7 +22,14 @@ export default async function SignInPage() {
           <p className="text-gray-600">
             Sign in to start chatting with your AI assistant
           </p>
+
+          {error === 'OAuthAccountNotLinked' && (
+            <p className="mt-4 text-sm text-red-500">
+              This email is already linked to another login method. Please use the provider you signed up with.
+            </p>
+          )}
         </div>
+
         <SignInForm />
       </div>
     </div>
