@@ -12,8 +12,14 @@ async function main() {
   await client.end();
 }
 
+async function migration(){
+  console.log('---Added Migration function here also')
+}
+
 main().catch((err) => {
   console.error("Migration failed");
   console.error(err);
   process.exit(1);
 });
+
+
