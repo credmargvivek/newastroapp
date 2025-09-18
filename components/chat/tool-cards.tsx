@@ -12,6 +12,11 @@ interface ToolInvocation {
   result?: any;
 }
 
+//here I have created tool cards
+interface toolcards{
+  name:string
+}
+
 interface ToolCardsProps {
   toolInvocation: ToolInvocation;
 }
