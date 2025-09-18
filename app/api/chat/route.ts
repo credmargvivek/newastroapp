@@ -19,6 +19,11 @@ declare module "next-auth" {
   }
 }
 
+export async function  PUT(req:Request){
+ // here i am created one function
+ // Now I need to raise the PR
+}
+
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
