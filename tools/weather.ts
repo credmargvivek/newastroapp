@@ -42,3 +42,6 @@ export const getWeatherTool = tool({
     }
   },
 });
+//waeaher changed 
+
+export getfun = tool()
