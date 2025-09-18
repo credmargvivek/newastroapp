@@ -11,6 +11,9 @@ import { ToolCards } from './tool-cards';
 interface MessageListProps {
   messages: Message[];
 }
+interface MessageResponse {
+  messageResponse: string
+}
 
 export function MessageList({ messages }: MessageListProps) {
   const { data: session } = useSession();
