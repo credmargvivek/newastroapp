@@ -11,7 +11,7 @@ export const getF1RaceTool = tool({
         `https://api.jolpi.ca/ergast/f1/races/`
         // `http://ergast.com/api/f1/${currentYear}.results.json`
       );
-
+//changed f1 tools also here please check
       if (!response.ok) {
         throw new Error(`F1 API error: ${response.status}`);
       }
