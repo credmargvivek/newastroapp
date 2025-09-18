@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { LogOut, User } from 'lucide-react';
 
+//here I have changed the header
+
 export function Header() {
   const { data: session } = useSession();
 
